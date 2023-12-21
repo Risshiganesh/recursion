@@ -13,25 +13,7 @@ function fibs (num){
 
 }
 
-// console.log(fibs(8))
 
-// function fibsRec (num, fibArray = [0,1]){
-
-//     // const fibArray = [0,1];
-
-//     if (num === 2) {
-//         return fibArray
-//     }
-
-
-//     const newFib = fibArray[fibArray.length-2] + fibArray[fibArray.length-1]
-
-//     fibArray.push(newFib);
-
-// //    console.log(fibArray)
-//    return fibsRec(num-1, fibArray);
-    
-// }
 console.log('FibsRec')
 console.log(fibsRec(77))
 
@@ -55,14 +37,8 @@ function fibsRec (num, fibArray = [0,1]){
 }
 
 
-// console.log(mergeSort([7,2,5,4,1,6,0,3,9,8,8,1]))
 
 console.log(mergeSort([3, -1, 4, 1, -5, 9, 2, -6, 5, 3, -5]))
-
-
-// console.log(mergeSort([9,8,7,6,5,4,3,2,1]))
-
-
 
 
 function mergeSort(array){
