@@ -32,8 +32,8 @@ function fibs (num){
 //    return fibsRec(num-1, fibArray);
     
 // }
-// console.log('FibsRec')
-// console.log(fibsRec(8))
+console.log('FibsRec')
+console.log(fibsRec(77))
 
 
 function fibsRec (num, fibArray = [0,1]){
@@ -54,105 +54,10 @@ function fibsRec (num, fibArray = [0,1]){
     
 }
 
-// console.log(fibsRec(3));
 
+// console.log(mergeSort([7,2,5,4,1,6,0,3,9,8,8,1]))
 
-// function mergeSort (arr, finalArr = []){
-
- 
-
-//     if(arr.length === 1){
-
-//         const newArr = []
-        
-//         if (leftArr< rightArr) {
-//             newArr.push(leftArr);
-//             newArr.push(rightArr);
-//         }else{
-//             newArr.push(rightArr);
-//             newArr.push(leftArr);
-//         }
-
-       
-//         return newArr
-
-//     }
-
-//     // console.log("Left Array")
-//     // console.log(leftArr)
-//     // console.log("Right Array")
-//     // console.log(rightArr)
-
-
-//     function split(arr){
-
-//         if (arr.length === 1) {
-//             return arr
-//         }
-
-//         const leftArr = arr.slice(0,(arr.length/2));
-
-//         const rightArr = arr.slice(arr.length/2);
-
-
-//         // console.log(leftArr)
-
-//         return sort(split(leftArr), split(rightArr))
-//     }
-
-
-//     function sort(leftArr, rightArr){
-
-//         console.log('##########################')
-//         console.log("Left")
-//         console.log(leftArr);
-//         console.log("Right")
-//         console.log(rightArr)
-
-//         const sortArr = [];
-//         console.log("COMPARE");
-
-//         console.log(leftArr < rightArr)
-
-//         if (leftArr < rightArr) {
-//             sortArr.push(leftArr)
-//             sortArr.push(rightArr);
-//         }else{
-//             sortArr.push(rightArr);
-//             sortArr.push(leftArr)
-//         }
-
-//         console.log("SORT")
-
-//         console.log(sortArr)
-//         const flatten = sortArr.flat(Infinity);
-//         console.log(flatten)
-
-
-//         // Experiment
-
-//         // if (Array.isArray(leftArr)) {
-//         //     return
-//         // }
-
-
-//         return sortArr;
-//     }
-
-//     const newArr = split(arr);
-
-
-//     console.log("FINAL")
-//     // console.log(newArr)
-//     // return newArr.flat(Infinity)
-//     return `${newArr}`;
-
-
-// }
-
-console.log(mergeSort([7,2,5,4,1,6,0,3,9,8,8,1]))
-
-// console.log(mergeSort([7,2]))
+console.log(mergeSort([3, -1, 4, 1, -5, 9, 2, -6, 5, 3, -5]))
 
 
 // console.log(mergeSort([9,8,7,6,5,4,3,2,1]))
@@ -162,20 +67,23 @@ console.log(mergeSort([7,2,5,4,1,6,0,3,9,8,8,1]))
 
 function mergeSort(array){
 
+    if (array.length === 0) {
+        return console.log("Array is empty")
+    }
+
+    
+
     function split(arr){
   
       if(arr.length === 1){
   
         return arr;
-        // return arr[0];
         }
       const splitLeft = arr.slice(0, arr.length/2);
   
       const splitRight = arr.slice(arr.length/2, arr.length);
   
-    //   console.log(splitLeft, splitRight)
-  
-      return sort(split(splitLeft), split(splitRight));;
+      return sort(split(splitLeft), split(splitRight));
     }
   
 
@@ -185,53 +93,44 @@ function mergeSort(array){
 
         console.log(left, right, newArray)
 
-  
-        // if(left.length === 0 && right.length === 0){
-        //   // console.log(newArray)
-        //   console.log("FINAL")
-        //   return newArray.flat(Infinity);
-        // }
-
         if(left.length === 0 ){
 
-          console.log("PUSH RIGHT")
+          console.log("^^^^^^^^^^^^^^^^^^^^^^^^")
 
-          newArray.push(right);
-          return newArray.flat(Infinity)
+          console.log("CONCAT ALL RIGHT ARRAY ELEMENTS")
+
+          return newArray.concat(right);
+  
         }
 
         if(right.length === 0 ){
 
-          console.log("PUSH LEFT")
-          
-          newArray.push(left);
+          console.log("^^^^^^^^^^^^^^^^^^^^^^^^")
 
-          return newArray.flat(Infinity)
+          console.log("CONCAT ALL LEFT ARRAY ELEMENTS")
+          
+          return newArray.concat(left);
+
         }
-        //const newArray = [];
 
-          if(left[0] < right[0]){
-            
-  
-          newArray.push(left[0]);
-          // newArray.push(right[0])
-  
-          return sort(left.slice(1), right, newArray);
-          }else{
-          newArray.push(right[0]);
-          // newArray.push(left[0])
-  
-          return sort(left, right.slice(1), newArray);
-      
-  
-          
-          }
+        if(left[0] < right[0]){
+        
+            newArray.push(left[0]);
 
+            return sort(left.slice(1), right, newArray);
 
+            }else{
 
-    }
-  
+            newArray.push(right[0]);
+
+            return sort(left, right.slice(1), newArray);
     
+          
+        }
+
+
+
+    }    
   
     return split(array);
     
